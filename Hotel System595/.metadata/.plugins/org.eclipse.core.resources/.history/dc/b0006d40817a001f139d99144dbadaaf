@@ -1,0 +1,36 @@
+package ie.atu.hotel;
+
+public class CreditCard {
+	private long number;
+	private Date expiryDate;
+	private int securityCode;
+	
+	public CreditCard(long number,Date expiryDate,int securityCode)
+	{
+		this.number = number;
+		this.expiryDate = expiryDate;
+		this.securityCode = securityCode;
+		
+	}
+	
+	public String toString() {
+		return "Card Number: " + number;}
+	
+	   
+	   public boolean equals(Object obj){
+		   CreditCard cObject;
+		   if (obj instanceof CreditCard)
+		      cObject = (CreditCard)obj;
+		   else
+		       return false;
+		 
+		   return (this.number==cObject.number
+	          && this.expiryDate==cObject.expiryDate
+	          && this.securityCode==cObject.securityCode);
+		}
+	   
+	   
+	
+	
+
+}

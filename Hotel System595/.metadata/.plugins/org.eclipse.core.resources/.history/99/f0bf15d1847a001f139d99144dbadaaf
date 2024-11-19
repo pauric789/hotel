@@ -1,0 +1,70 @@
+package ie.atu.hotel;
+
+import java.util.Objects;
+import java.util.Scanner;
+
+public class CreditCard {
+	private long number;
+	private Date expiryDate;
+	private int securityCode;
+	
+	public CreditCard(long number,Date expiryDate,int securityCode)
+	{
+		this.number = number;
+		this.expiryDate = expiryDate;
+		this.securityCode = securityCode;
+		
+	}
+	
+	public String toString() {
+		return "Card Number: " + number;}
+	
+	 
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		CreditCard other = (CreditCard) obj;
+		return Objects.equals(expiryDate, other.expiryDate) && number == other.number
+				&& securityCode == other.securityCode;
+	}
+
+	public long getNumber()
+	{
+		return number;
+		
+	}
+	
+	public Date getExpiryDate()
+	{
+		return expiryDate;
+	}
+	
+	
+	public int getSecurityCode() {
+		return securityCode;
+	}
+	
+	public void read() {
+		Scanner kb=new Scanner(System.in);
+		System.out.println("CREDIT CARD DETAILS");
+		System.out.println("Card Number: ");
+		number = kb.nextLong();
+		System.out.println("Expiry Date");
+		int d=kb.nextInt();
+		int m=kb.nextInt();
+		int y=kb.nextInt();
+		expiryDate=new Date(d,m,y);
+		System.out.print("Secuirty Code");
+		securityCode = kb.nextInt();
+	}
+	
+	
+	
+
+}

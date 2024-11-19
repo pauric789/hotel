@@ -1,0 +1,86 @@
+package ie.atu.hotel;
+
+import java.util.Objects;
+import java.util.Scanner;
+
+public abstract class Person {
+	protected Name name;
+	protected String phoneNumber;
+	
+	public Person() {
+		name = new Name();
+	    phoneNumber = "";
+	}
+	
+	
+	public Person(Name name,String phoneNumber) {
+		this.name = name;
+		this.phoneNumber = phoneNumber;
+	}
+	
+	public String toString()
+	{
+		return name + "\t" + phoneNumber;
+	}
+
+
+	
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Person other = (Person) obj;
+		return Objects.equals(name, other.name) && Objects.equals(phoneNumber, other.phoneNumber);
+	}
+
+
+	
+	public Name getName() {
+		return name;
+	}
+
+
+	public void setName(Name name) {
+		this.name = name;
+	}
+
+
+	public String getPhoneNumber() {
+		return phoneNumber;
+	}
+
+
+	public void setPhoneNumber(String phoneNumber) {
+		this.phoneNumber = phoneNumber;
+	}
+	
+	public void read() {
+		Scanner kb = new Scanner(System.in);
+		System.out.println("TITLE");
+		String t = kb.nextLine();
+		System.out.println("FIRSY NAME: ");
+		String fN = kb.nextLine();
+		System.out.println("SURNAME: ");
+		String sN = kb.nextLine();
+		System.out.print("Secuirty Code");
+	    this.name = new Name(t,fN,sN);
+	    
+	    
+	    System.out.println("PHONE NUMBER: ");
+	    phoneNumber = kb.nextLine();
+	    
+	    
+	    
+	}
+	
+	
+	
+			
+	
+
+}
